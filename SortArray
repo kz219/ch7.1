@@ -1,0 +1,49 @@
+import java.text.DecimalFormat;
+import java.util.Random;
+public class SortArray {
+
+	public static void main(String[] args) {
+		String min ="";
+		int minIdx=0;
+		DecimalFormat df = new DecimalFormat("##0.00");
+		Random rand = new Random();
+		String [] scores = new String[10];
+		//initialize array
+		for (int i=0; i<scores.length; i++) {
+			scores[i] = df.format(rand.nextDouble()*100);
+			System.out.println(scores[i]);
+		}
+
+		//sort
+		for (int i=0; i<scores.length; i++) {
+			//int i=0;
+			int oldMinIdx = i;
+			min = scores[i];
+			//find min
+			for(int j=i+1; j<scores.length; j++) {
+				if(Double.parseDouble(min)>Double.parseDouble(scores[j])) {
+					min = scores[j];
+					minIdx = j;
+				}
+			}
+
+			swap(scores,minIdx, oldMinIdx, min);
+		}
+			System.out.println("the min is " +min);
+
+			//display list
+			for (int x=0; x<scores.length; x++) {
+				System.out.println(scores[x]);
+			}
+			//return scores;
+		}
+
+	private static void swap(String[] scores, int minIdx, int OldMinIdx, String min) {
+		// TODO Auto-generated method stub
+		String temp = scores[OldMinIdx];
+		scores[OldMinIdx] = min;
+		scores[minIdx] = temp;
+
+	}
+}
+

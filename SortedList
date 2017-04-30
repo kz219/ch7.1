@@ -1,0 +1,27 @@
+import java.text.DecimalFormat;
+
+public class SortedList {
+    public static void main(String [] args) {
+
+        System.out.println();
+        System.out.println();
+        System.out.println("The smallest is " + Calculator.findSmallest(numbers));
+        System.out.println();
+        System.out.println();
+        System.out.println("The list is ");
+       // int []sortedList = Calculator.sort(numbers);
+
+        for(int i=0; i<numbers.length; i++) {
+            System.out.print(numbers[i] +",");
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("The sorted list is ");
+        Calculator.sort(numbers);
+
+        for(int i=0; i<numbers.length; i++) {
+            System.out.print(numbers[i] +",");
+        }
+
+    }
+}

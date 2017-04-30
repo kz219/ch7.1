@@ -1,0 +1,48 @@
+import java.awt.Label;
+
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+public class SortGui {
+
+	public static void main(String[] args) {
+
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		Font font = new Font("Times New Roman", 30);
+		final int SIZE=10;
+		BorderPane borderPane = new BorderPane();
+		borderPane.setPadding(new Insets(10));
+		Label label = new label("Enter " + SIZE + " numbers seperated by space");
+		label.setFont(font);
+		TextField [] textField = new TextField(SIZE);
+		GridPane gridPane = new GridPane();
+		//Scene scene = new Scene(gridPane);
+		gridPane.setPadding(new Insets(10,10,10,10));
+		//gridPane.getChildren().add(textField);
+		//primaryStage.setScene(scene);
+		//primaryStage.show();
+		gridPane.setHgap(5);
+
+		borderPane.setTop(label);
+		borderPane.setCenter(gridPane);
+		Scene scene = new scene(borderPane);
+
+		for(int i=0; i<textField.length; i++) {
+			textField[i] = new TextField();
+			gridPane.add(textField[i],1,0);
+		}
+
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+
+}
